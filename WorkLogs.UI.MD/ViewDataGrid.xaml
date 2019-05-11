@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="WorkLogs.UI.MD.ViewDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WorkLogs.UI.MD"
+             xmlns:fluentWpf="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+             fluentWpf:AcrylicWindow.Enabled="True"
+             fluentWpf:PointerTracker.Enabled="True"
+             Background="#A0FFFFFF"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1600" Loaded="UserControl_Loaded">
+    <Grid>
+        <DataGrid HorizontalAlignment="Left" Height="787" Margin="0,113,0,0" VerticalAlignment="Top" Width="1600" CanUserAddRows="True" CanUserDeleteRows="False" AutoGenerateColumns="False" Loaded="DataGrid_Loaded" Name="dgvlist" ColumnDisplayIndexChanged="dgvList_ColumnDisplayIndexChanged" RowEditEnding="dgvlist_RowEditEnding" BeginningEdit="dgvlist_BeginningEdit">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="" Width="auto" IsReadOnly="true" />
+                <DataGridTextColumn Binding="{Binding DateTime,StringFormat='{}{0:yyyy-MM-dd}',UpdateSourceTrigger = PropertyChanged}" Header="日期" Width="auto" />
+                <DataGridTextColumn Binding="{Binding Name,UpdateSourceTrigger = PropertyChanged}"    Header="姓名"  Width="auto"  />
+                <DataGridTextColumn Binding="{Binding ProductName,UpdateSourceTrigger = PropertyChanged}"     Header="产品" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Version,UpdateSourceTrigger = PropertyChanged}"    Header="版本" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Stage,UpdateSourceTrigger = PropertyChanged}"    Header="阶段" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Type,UpdateSourceTrigger = PropertyChanged}"    Header="工作类别" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Task,UpdateSourceTrigger = PropertyChanged}"    Header="任务" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Progress,UpdateSourceTrigger = PropertyChanged}"    Header="进度" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Whours,UpdateSourceTrigger = PropertyChanged}"    Header="工时" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding TProgress,UpdateSourceTrigger = PropertyChanged}"    Header="总进度" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Workout,UpdateSourceTrigger = PropertyChanged}"    Header="当天产出" Width="auto"  />
+                <DataGridTextColumn Binding="{Binding Problem,UpdateSourceTrigger = PropertyChanged}"    Header="需要解决的问题" Width="auto" />
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        <Button Name="Logout"  Content="注销" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="80" Background="Transparent" BorderBrush="Gray" Click="Logout_Click" Foreground="#DD000000" />
+        <Button x:Name="UpdatePass"  Content="修改密码" HorizontalAlignment="Left" Margin="109,10,0,0" VerticalAlignment="Top" Width="92" Height="80" Background="Transparent" BorderBrush="Gray" Click="UpdatePass_Click" Foreground="#DD000000" />
+        <Button x:Name="AddProduct"  Content="添加产品" HorizontalAlignment="Left" Margin="223,10,0,0" VerticalAlignment="Top" Width="92" Height="80" Background="Transparent" BorderBrush="Gray" Click="AddProduct_Click" Foreground="#DD000000" />
+
+    </Grid>
+</UserControl>

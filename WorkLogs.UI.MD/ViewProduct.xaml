@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WorkLogs.UI.MD.ViewProduct"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WorkLogs.UI.MD"
+             xmlns:fluentWpf="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+             fluentWpf:AcrylicWindow.Enabled="True"
+             fluentWpf:PointerTracker.Enabled="True"
+             Background="#A0FFFFFF" 
+             mc:Ignorable="d" d:DesignWidth="400" Loaded="UserControl_Loaded" Height="600" >
+    <Grid>
+        <DataGrid Loaded="DataGrid_Loaded" Name="dgvlist" RowEditEnding="dgvlist_RowEditEnding" ColumnDisplayIndexChanged="dgvList_ColumnDisplayIndexChanged" Height="550" Width="400" Margin="0,0,0,50">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ProductID}" Header="" Width="auto" IsReadOnly="true" />
+                <DataGridTextColumn Binding="{Binding Product_E,UpdateSourceTrigger = PropertyChanged}" Header="产品英文名" Width="auto" />
+                <DataGridTextColumn Binding="{Binding Product_C,UpdateSourceTrigger = PropertyChanged}" Header="产品中文名" Width="auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="返回" HorizontalAlignment="Left" Margin="0,555,0,0" VerticalAlignment="Top" Width="400" Height="41" Click="Button_Click"/>
+
+    </Grid>
+</UserControl>
